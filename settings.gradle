@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SimpleLauncherDemo"
+rootProject.name = "MediaNetLauncherRedefined"
 include ':app'

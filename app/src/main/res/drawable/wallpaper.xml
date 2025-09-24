@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- If you put an actual bitmap wallpaper.jpg in drawable, use it; otherwise fallback to placeholder gradient -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/wallpaper_placeholder" />
+</selector>

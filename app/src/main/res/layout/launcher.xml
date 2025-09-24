@@ -1,46 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
+<com.android.medianet.launcher.DragLayer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drag_layer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipChildren="false">
 
-    <com.android.medianet.launcher.presentation.views.dragndrop.DragLayer
-        android:id="@+id/drag_layer"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:launcher="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:fitsSystemWindows="true"
-        android:importantForAccessibility="no">
+        android:clipChildren="false">
 
-
-        <com.android.medianet.launcher.presentation.views.Workspace
+        <!-- Workspace (main home screen pages) -->
+        <com.android.medianet.launcher.Workspace
             android:id="@+id/workspace"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:theme="@style/HomeScreenElementTheme"
-            launcher:pageIndicator="@+id/page_indicator" />
+            android:background="#0000ff"
+            android:clipChildren="false" />
 
-        <include
+        <!-- Hotseat (persistent dock at bottom) -->
+        <com.android.medianet.launcher.Hotseat
             android:id="@+id/hotseat"
-            layout="@layout/hotseat" />
-
-
-
-        <include
-            android:id="@+id/drop_target_bar"
-            layout="@layout/drop_target_bar" />
-
-
-
-        <include
-            android:id="@+id/overview_panel"
-            layout="@layout/overview_panel" />
-
-        <include
-            android:id="@+id/apps_view"
-            layout="@layout/all_apps"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#ff0000"
+            android:clipChildren="false" />
 
-    </com.android.medianet.launcher.presentation.views.dragndrop.DragLayer>
+        <!-- Search bar below Hotseat -->
+        <LinearLayout
+            android:id="@+id/search_bar_container"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_below="@id/hotseat"
+            android:padding="8dp"
+            android:background="@android:color/darker_gray">
 
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_search" />
+
+            <EditText
+                android:id="@+id/search_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Search apps"
+                android:textColor="@android:color/white"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- AllApps overlay -->
+        <com.android.medianet.launcher.AllAppsContainerView
+            android:id="@+id/all_apps_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/black"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</com.android.medianet.launcher.DragLayer>
