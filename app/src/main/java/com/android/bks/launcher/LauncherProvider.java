@@ -1,4 +1,4 @@
-package com.android.medianet.launcher;
+package com.android.bks.launcher;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 
 public class LauncherProvider extends ContentProvider {
 
-    public static final String AUTHORITY = "com.android.medianet.launcher.settings";
+    public static final String AUTHORITY = "com.android.bks.launcher.settings";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/favorites");
 
     private static final int FAVORITES = 1;

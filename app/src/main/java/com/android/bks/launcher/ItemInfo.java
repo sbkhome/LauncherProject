@@ -1,4 +1,4 @@
-package com.android.medianet.launcher;
+package com.android.bks.launcher;
 
 /**
  * ItemInfo - base class for workspace items (Launcher3-style)

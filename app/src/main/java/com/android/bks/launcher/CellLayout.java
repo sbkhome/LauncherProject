@@ -1,6 +1,7 @@
-package com.android.medianet.launcher;
+package com.android.bks.launcher;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -15,7 +16,9 @@ public class CellLayout extends FrameLayout {
     private static final int ROWS = 4;
     private static final int COLUMNS = 4;
 
-    public CellLayout(Context ctx) { super(ctx); }
+    public CellLayout(Context ctx) { super(ctx);
+        setBackgroundColor(Color.GRAY);
+    }
     public CellLayout(Context ctx, @Nullable AttributeSet attrs) { super(ctx, attrs); }
 
     /**

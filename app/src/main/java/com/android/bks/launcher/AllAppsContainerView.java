@@ -1,7 +1,6 @@
-package com.android.medianet.launcher;
+package com.android.bks.launcher;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.EditText;

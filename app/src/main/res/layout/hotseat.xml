@@ -6,7 +6,7 @@
     android:layout_gravity="bottom"
     android:orientation="vertical">
 
-    <com.android.medianet.launcher.Hotseat
+    <com.android.bks.launcher.Hotseat
         android:id="@+id/hotseat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,6 +35,6 @@
             android:text="Search"
             android:textColor="@android:color/white"
             android:layout_marginStart="8dp" />
-    </com.android.medianet.launcher.Hotseat>
+    </com.android.bks.launcher.Hotseat>
 
 </FrameLayout>

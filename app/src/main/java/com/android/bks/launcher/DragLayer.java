@@ -1,4 +1,4 @@
-package com.android.medianet.launcher;
+package com.android.bks.launcher;
 
 import android.content.Context;
 import android.util.AttributeSet;

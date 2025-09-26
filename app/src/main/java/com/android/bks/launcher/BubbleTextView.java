@@ -1,4 +1,4 @@
-package com.android.medianet.launcher;
+package com.android.bks.launcher;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -21,7 +21,12 @@ public class BubbleTextView extends FrameLayout {
     private final TextView label;
     private ApplicationInfo info;
 
-    public BubbleTextView(Context ctx) { super(ctx); icon = new ImageView(ctx); label = new TextView(ctx); init(); }
+    public BubbleTextView(Context ctx) {
+        super(ctx);
+        icon = new ImageView(ctx);
+        label = new TextView(ctx);
+        init();
+    }
     public BubbleTextView(Context ctx, @Nullable AttributeSet attrs) { super(ctx, attrs); icon = new ImageView(ctx); label = new TextView(ctx); init(); }
 
     private void init() {
@@ -39,7 +44,7 @@ public class BubbleTextView extends FrameLayout {
         label.setText(ai.title != null ? ai.title : "");
 
         if (ai.icon != null) {
-            icon.setImageDrawable(ai.icon); // use actual app icon
+            icon.setImageBitmap(ai.icon); // <-- use Bitmap from IconCache
         } else {
             // fallback to default icon
             Drawable d = getResources().getDrawable(android.R.drawable.sym_def_app_icon);
@@ -48,6 +53,7 @@ public class BubbleTextView extends FrameLayout {
 
         setClickable(true);
     }
+
 
 
     public ApplicationInfo getApplicationInfo() { return info; }

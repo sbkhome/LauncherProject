@@ -1,4 +1,4 @@
-package com.android.medianet.launcher;
+package com.android.bks.launcher;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -15,6 +15,7 @@ public class Hotseat extends FrameLayout {
     public static final int NUM = 4; // Number of icons in the hotseat
 
     public Hotseat(Context context) {
+
         super(context);
     }
 
@@ -26,7 +27,7 @@ public class Hotseat extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    private void init() {  }
+
 
     public void bindApps(List<ApplicationInfo> apps) {
         removeAllViews();
@@ -41,8 +42,8 @@ public class Hotseat extends FrameLayout {
                 addView(btv, lp);
             } else {
                 // placeholder empty slot
-                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-                addView(new android.view.View(getContext()), lp);
+                //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+                //addView(new android.view.View(getContext()), lp);
             }
         }
     }

@@ -1,67 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.android.medianet.launcher.DragLayer xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.bks.launcher.DragLayer xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drag_layer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:clipChildren="false">
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipChildren="false">
+        android:layout_height="match_parent">
 
-        <!-- Workspace (main home screen pages) -->
-        <com.android.medianet.launcher.Workspace
+        <!-- Workspace area -->
+        <com.android.bks.launcher.Workspace
             android:id="@+id/workspace"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#0000ff"
-            android:clipChildren="false" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#0000FF" /> <!-- Blue for debug -->
 
-        <!-- Hotseat (persistent dock at bottom) -->
-        <com.android.medianet.launcher.Hotseat
-            android:id="@+id/hotseat"
+        <!-- Bottom area (Hotseat + Search bar) -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="#ff0000"
-            android:clipChildren="false" />
+            android:background="#222222"
+            android:paddingBottom="48dp"> <!-- keep above nav bar -->
 
-        <!-- Search bar below Hotseat -->
-        <LinearLayout
-            android:id="@+id/search_bar_container"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_below="@id/hotseat"
-            android:padding="8dp"
-            android:background="@android:color/darker_gray">
+            <!-- Hotseat -->
+            <com.android.bks.launcher.Hotseat
+                android:id="@+id/hotseat"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="#FF0000" /> <!-- Red for debug -->
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_search" />
-
-            <EditText
+            <!-- Search bar -->
+            <TextView
                 android:id="@+id/search_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Search apps"
-                android:textColor="@android:color/white"
-                android:layout_marginStart="8dp" />
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="Google Search"
+                android:textColor="#FFFFFF"
+                android:background="#333333" />
         </LinearLayout>
+    </LinearLayout>
 
-        <!-- AllApps overlay -->
-        <com.android.medianet.launcher.AllAppsContainerView
-            android:id="@+id/all_apps_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@android:color/black"
-            android:visibility="gone" />
-
-    </RelativeLayout>
-
-</com.android.medianet.launcher.DragLayer>
+    <!-- All Apps (overlay, hidden by default) -->
+    <com.android.bks.launcher.AllAppsContainerView
+        android:id="@+id/all_apps_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#AA000000"/>
+</com.android.bks.launcher.DragLayer>

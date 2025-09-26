@@ -1,6 +1,7 @@
-package com.android.medianet.launcher;
+package com.android.bks.launcher;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -11,18 +12,26 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class LauncherViewModel extends AndroidViewModel {
+    private final String TAG = "HOMETEST_LauncherViewModel";
     private final LauncherRepository repo;
     private final LiveData<List<ApplicationInfo>> appsLive;
 
     public LauncherViewModel(@NonNull Application application) {
         super(application);
+        Log.i(TAG , "LauncherViewModel(): called");
         repo = new LauncherRepository(application.getApplicationContext());
         appsLive = repo.getAppsLive();
+        repo.loadAll();
     }
+
+
 
     public LiveData<List<ApplicationInfo>> getAppsLive() { return appsLive; }
 
     public void insertApp(ApplicationInfo app) { repo.insertApp(app); }
+
+    public void insertApps(List<ApplicationInfo> appInfoList) { repo.insertApps(appInfoList); }
+
     public void updateApp(ApplicationInfo app) { repo.updateApp(app); }
     public void deleteApp(ApplicationInfo app) { repo.deleteApp(app); }
 
